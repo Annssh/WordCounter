@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Word Counter</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500;600&family=Poppins:ital,wght@0,500;1,500&display=swap');
+    body
+    {
+      padding: 20px 80px;
+      font-family: 'Oswald', sans-serif;
+      font-family: 'Poppins', sans-serif;
+      background: url(header.jpg);
+    }
+    h1
+    {
+      text-align: center;
+      background-color: aqua;
+      color: black;
+      font-weight: 900;
+      padding: 10px;
+      margin: 1px;
+      border-radius: 10px;
+      width: 95%;
+    }
+    textarea
+    {
+      padding: 10px;
+      width: 95%;
+      background-color: black;
+      border-style: double;
+      border-width: 2px;
+      border-color: rgb(128, 255, 0);
+      border-radius: 10px;
+      font-size: 20px;
+      color: antiquewhite;
+    }
+    #count
+    {
+      margin: 0;
+      padding-right: 50px;
+      text-align: center;
+      background-color: aqua;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+      font-size: 25px;
+      display: flex;
+      justify-content: space-evenly;
+    }
+    #w
+    {
+      margin: 0;
+      padding: 10px;
+      text-align: center;
+      background-color: aqua;
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px;
+      font-size: 25px;
+      display: flex;
+      justify-content: space-evenly;
+    }
+
+  </style>
+</head>
+<body>
+  <h1>Word and Character Counter</h1>
+  <textarea id="textbox" cols="30" rows="10"></textarea>
+  <p>
+    <div id="count">
+      <span id="word">0</span>
+      <span id="char">0</span>
+    </div>
+    <div id="w">
+      <span>Words</span><span>Characters</span>
+    </div>
+  </p>
+  
+  <script>
+    let textbox = document.getElementById("textbox");
+
+    textbox.addEventListener('input', function(){
+      var text = this.value;
+      let char = text.length;
+      document.getElementById("char").innerHTML = char;
+
+
+      text = text.trim();
+      let words = text.split(" ");
+      let cleanList = words.filter(function(elm){
+        if(elm != "")
+        {
+          return elm
+        }
+      })
+      document.getElementById("word").innerHTML = cleanList.length;
+    })
+  </script>
+</body>
+</html>
